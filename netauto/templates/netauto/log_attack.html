@@ -1,0 +1,25 @@
+{% extends "netauto/base.html" %} {% block content %}
+<h2 class="mt-4 text-gray-800">Log</h2>
+<div class="table-responsive">
+  <table class="mt-3 table table-light text-gray-800">
+    <tr>
+      <th>Time</th>
+      <th>Detection Time</th>
+      <th>Source IP</th>
+      <th>Destination IP</th>
+      <th>Port</th>
+      <th>Protocol</th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+      <td>{{ log.time }}</td>
+      <td>{{ log.detection_time }}</td>
+      <td>{{ log.source_ip }}</td>
+      <td>{{ log.dst_ip }}</td>
+      <td>{{ log.dst_port }}</td>
+      <td>{{ log.conn_protocol }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock content %}

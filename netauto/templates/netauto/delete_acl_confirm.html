@@ -1,0 +1,19 @@
+{% extends "netauto/base.html" %} {% block content %}
+<h2 class="mt-4 text-gray-800">Delete ACL ID</h2>
+<p>
+  Confirm the ACL ID deletion by pressing the "Delete" button below.
+</p>
+<br>
+<p>ACL ID selected: <b>{{ acl_id }}</b></p>
+<form method="POST">
+  {% csrf_token %}
+  <br>
+  <button type="submit" class="mt-3 btn btn-primary" name="action" value="delete">Delete</button>
+  <br>
+  <button type="submit" class="mt-3 btn btn-primary" name="action" value="cancel">Cancel / Back</button>
+</form>
+<br>
+
+
+
+{% endblock content %}

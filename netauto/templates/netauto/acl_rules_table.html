@@ -1,0 +1,55 @@
+{% extends 'netauto/base.html' %} {% block content %}
+<!-- Content Row -->
+
+<!-- Total Devices -->
+
+<!-- Content Row -->
+
+<h1 class="h3 mb-0 text-gray-800">Lists of available Access Control List</h1>
+<br />
+<div class="table-responsive">
+  <table class="table table-light text-gray-800 table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ACL Sequence</th>
+        <th scope="col">Source IP</th>
+        <th scope="col">Destination IP</th>
+        <th scope="col">Protocol</th>
+        <th scope="col">Action</th>
+        <!---<th scope="col">Rules</th> --->
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in acl_list %}
+      <tr>
+        <td>{{ log.sequence }}</td>
+        <td>{{ log.source }}</td>
+        <td>{{ log.destination }}</td>
+        <td>{{ log.protocol }}</td>
+        <td>{{ log.action }}</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="table-responsive">
+  <table class="table table-light text-gray-800 table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Interface</th>
+        <th scope="col">Direction</th>
+        <!---<th scope="col">Rules</th> --->
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in int_list %}
+      <tr>
+        <td>{{ x.if_id }}</td>
+        <td>{{ x.direction }}</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

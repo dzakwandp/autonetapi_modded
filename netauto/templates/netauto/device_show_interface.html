@@ -1,0 +1,37 @@
+{% extends 'netauto/base.html' %} {% block content %}
+<!-- Content Row -->
+
+<!-- Total Devices -->
+
+<!-- Content Row -->
+
+<h1 class="h3 mb-0 text-gray-800">{{head}}</h1>
+<br />
+<div class="table-responsive">
+  <table class="table table-light text-gray-800 table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Interface name</th>
+        <th scope="col">IP Address</th>
+        <th scope="col">Subnet Mask</th>
+        <th scope="col">Type</th>
+        <th scope="col">NAT Direction</th>
+        <th scope="col">Description</th>
+        <!---<th scope="col">Rules</th> --->
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in int_data %}
+      <tr>
+        <td>{{ log.if_name }}</td>
+        <td>{{ log.ip_address }}</td>
+        <td>{{ log.subnet_mask }}</td>
+        <td>{{ log.type }}</td>
+        <td>{{ log.nat_direction }}</td>
+        <td>{{ log.description }}</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

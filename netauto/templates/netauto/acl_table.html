@@ -1,0 +1,29 @@
+{% extends 'netauto/base.html' %} {% block content %}
+<!-- Content Row -->
+
+<!-- Total Devices -->
+
+<!-- Content Row -->
+
+<h1 class="h3 mb-0 text-gray-800">Lists of available Access Control List</h1>
+<br />
+<p>Router: <b>{{ router_name }}</b></p>
+<p align=right><a href="{{ request.path }}_add/">+ Create a new ACL</a></p>
+<div class="table-responsive">
+  <table class="table table-light text-gray-800 table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <!---<th scope="col">Rules</th> --->
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in acl_list %}
+      <tr>
+        <td><a href="{{ request.path }}{{ log.acl_id }}">{{ log.acl_id }}</a></td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

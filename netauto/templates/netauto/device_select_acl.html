@@ -1,0 +1,25 @@
+{% extends "netauto/base.html" %} {% block content %}
+<h1 class="mt-4 text-gray-800">{{head}}</h1>
+<p>
+  Choose any device to show its registered Access Control Lists.
+</p>
+<div class="table-responsive">
+  <table class="table table-light text-gray-800 table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Device Name</th>
+        <th scope="col">IP Address</th>
+        <!---<th scope="col">Rules</th> --->
+      </tr>
+    </thead>
+    <tbody>
+      {% for device in all_devices %}
+      <tr>
+        <td><a href="{{ request.path }}{{ device.id }}">{{device.hostname}}</a></td>
+        <td>{{device.ip_address}}</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
